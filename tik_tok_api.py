@@ -12,7 +12,7 @@ class Campaign:
 
 
 class TikTokAPIError(Exception):
-    """Custom exception class for handling TikTok API releated errpoors"""
+    """Custom exception class for handling TikTok API releated errors"""
     pass
 
 class TikTokMarketingAPI:
@@ -170,7 +170,7 @@ class TikTokMarketingAPI:
                 "start_date": str(start_date),
                 "end_date": str(end_date),
                 "filtering": {"campaign_ids": campaign_ids,
-                              "buying_types": "AUCTION"} # Not sure if this correct way to isolate auction based campaigns
+                              "buying_types": ["AUCTION"]} # Not sure if this correct way to isolate auction based campaigns
             }
 
             data = self._make_request(
