@@ -13,6 +13,10 @@ def main():
 
     # 1: Get access token
     try:
+        # Use api.get_access_token() when we need full token metadata (e.g., advertiser_ids, ad_id validity).
+        # Use api.access_token when we just need a valid token string for making authenticated API requests.
+        # The access_token property includes lazy loading logic and will automatically refresh if expired.
+        # token_info = api.access_token 
         token_info = retry(api.get_access_token, max_retries=2, delay=300, exception_types=(TikTokAPIError,))
         print("Access Token:", token_info["access_token"])
         print("Advertiser ID Valid:", token_info["ad_id_validity"])
