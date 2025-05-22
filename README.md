@@ -33,6 +33,7 @@ AIM: Use the TikTok Marketing API to update budgets based on ad performance
 - Used @dataclass to quickly implment 'Campaign' class which can represent each campaign and allow for budget comparisons between campaign attributes without cluttering the tik_tok_api.py file
 - retry function housed in utlis.py can be used in main.py to handle retry's with API calls
 - self._token_expiry ensures token is valid, this would be more important if multiple campaigns were being managed at high frequency
+- access_token property uses lazy loading, so an instance of the class can be created without triggering unnecessary API calls. The token is only fetched when it is first accessed, and only if needed
 - get_campaigns method retrives the campaigns and budget in one call, reducing API calls
 - The Task Overview specifies 'auction campaigns' not sure if filtering the buying_type controls this?
 - Exhaustion criteria states "Correctness: Does the solution correctly identify and pause low-ROAS campaigns?". Task overview does not mention pausing low-ROAS campaigns?
